@@ -226,21 +226,30 @@ This is your **routing vocabulary**.
 
 #### 2. **Force the Classifier (LLM or rule) to use only those values**
 
-##### ✅ Option A: **LLM with strict prompt**
-```python
-prompt = f"""
-Classify the user query into ONE of these exact intents:
+##### ✅ Option A: **Strict Prompt Engineering** (Most Common)
+
+```text
+Classify the user's request into **exactly one** of these intents:
 - inventory_check
 - return_request
 - order_status
 - product_search
 - complaint
 
-User query: "{user_query}"
+Rules:
+- Respond with ONLY the intent name. No punctuation. No explanation.
+- If unsure, choose the closest match.
 
-Respond with ONLY the intent name. No explanation.
-"""
-# LLM output → "inventory_check" (not "check stock" or "look up product")
+User query: "Do you have Nike Air Max size 10?"
+
+Answer:
+```
+
+✅ **Output**: `inventory_check`  
+✅ **Why?** Clear options + instruction to pick **only from the list**.
+
+---
+
 ```
 
 > 💡 Use **structured output** (e.g., JSON mode, function calling) for even stronger guarantees.
