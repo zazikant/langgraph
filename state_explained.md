@@ -52,6 +52,9 @@ So: **No, the notebook is not the graph. It’s the data moving through one run 
 
 ---
 
+question: you mean if there are 50 nodes that process things.. all findings get appended to that node C responsible for generating response and a response is generated looking at that compiled dictionary?
+
+
 Almost — but let’s clarify to avoid a common misunderstanding:
 
 ### ❌ **No**, the response node does **not** look at a dictionary that contains "all findings from all 50 nodes".
